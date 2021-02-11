@@ -31,20 +31,48 @@ let nightFuryHunger = 3
 let nightFuryRestLevel = 3
 let nightFuryThirst = 3
 
+// CREATE GAME OBJECT 
+// const game = {
+// start method/ feed/ water/ play /sleep
+// instantiating nightfury class
+// then assign to be instance of nightfury class
+// then start timer when user hits start
+// setInterval use it's ID to clear it 
+// }
 // objects: 
+// have a method on game object that you pass into as callback to interval 
+// that runs everytime interval tics 
+// then everything you want to happen is in one place
+// every tic gets more hungry aka <= 3 value 
+
+const tamagotchiGame = {
+	feedNightFuryDonuts() {
+		return `${nightFuryFullness}` + 3;
+	},
+	playWithNightFury() {
+		return `${nightFuryHappiness}` + 3;
+	},
+	waterNightFuryWater() {
+		return `${nightFuryThirst}` +3;
+	},
+	sleepNightFury() {
+		return `${nightFuryRestLevel}` +3;
+	},
+}
+
 
 class nightFury {
-	constructor() {
+	constructor(name,happiness,fullness,rest,hydration) {
 		this.name = name
-		this.happines = happiness
+		this.happiness = happiness
 		this.fullness = fullness
 		this.rest = rest
 		this.hydration = hydration
 		this.objects = {
-			donuts: 5,
-			water: 5,
-			play: 5,
-			sleep: 5
+			donuts: 3,
+			water: 3,
+			play: 3,
+			sleep: 3
 		}
 	}	
 
@@ -89,42 +117,42 @@ class nightFury {
 			console.log("Night Fury is hydrated!")
 		}
 	}
-}
 
-// const nightFury = new nightFury('toothless')
-
-
-function waterNightFury() {
-	nightFury.hydration = `${nightFury.hydration}` + this.objects.water
-	console.log(this.objects.water)
-	console.log(nightFury)
-	console.log(`${nightFury.name}` + " was hydrated! Hydration is now at " + `${nightFury.hydration}`)
+	sleepNightFury = () => {
+		(this.rest += this.objects.sleep)
+		console.log(this.rest)
+		console.log(this.name + " was put to bed! Rest is now at " + `${this.rest}`)
+	
 
 }
+	waterNightFury = () => {
+		this.hydration = this.hydration + this.objects.water
+		console.log(this.hydration)
+		console.log(this.name + " was hydrated! Hydration is now at " + `${this.hydration}`)
+}
 
-function sleepNightFury() {
-	nightFury.rest = `${nightFury.rest}` + this.objects.sleep
-	console.log(this.sleep)
-	console.log(nightFury)
-	console.log(`${nightFury.rest}` + " is sleeping! Rest is now at " + `${nightFury.rest}`)
+	playWithNightFury = () => {
+		this.happiness = this.happiness + this.objects.play
+		console.log(this.happiness)
+		console.log(this.name + " enjoyed play! Happiness is now at " + `${this.happiness}`)
+	}
+
+	feedNightFuryDonuts = () => {
+		this.fullness = this.fullness + this.objects.donuts 
+		console.log(this.fullness)
+		console.log(this.name + " ate 3 donuts! Fullness is now at " + `${this.fullness}`)
+	}
+
+	nightFuryBlowsFire = () => {
+		if(this.happiness = 0) {
+			console.log(this.name + " has scorched you due to feeling neglected :( game over")
+		}
+	}
+
 
 }
 
-function playWithNightFury() {
-	nightFury.happiness = `${nightFury.happiness}` + this.objects.play
-	console.log(this.play)
-	console.log(nightFury)
-	console.log(`${nightFury.name}` + " was hydrated! Happiness is now at " + `${nightFury.happiness}`)
 
-}
-
-function feedNightFuryDonuts() {
-	nightFury.fullness = `${nightFury.fullness}` + this.objects.donuts
-	console.log(this.donuts)
-	console.log(nightFury)
-	console.log(`${nightFury.name}` + " was fed donuts! Fullness is now at " + `${nightFury.fullness}`)
-
-}
 
 function nightFuryBlowsFire() {
 	if(this.happiness = 0){
@@ -137,38 +165,72 @@ function nightFuryBlowsFire() {
 		console.log("Night Fury has scorched you because he was sleep deprived! Game over")
 	}
 
-}	
-
-//setInterval checks 
 
 
-// setInterval
-let start = 0
-const testTimer = setInterval(timerCount,2000);
-
-function timerCount() {
-	start++
-	console.log(start)
-	if(start == 10) {
-		clearInterval(testTimer)
-	}
 
 }
 
-window.setInterval(function(){
-	if(this.hydration && this.fullness && this.happiness && this.rest <= 3) {
-		waterNightFury();
-  		sleepNightFury();
-  		playWithNightFury();
-  		feedNightFuryDonuts();
-	}else if(this.hydration && this.fullness && this.happiness && this.rest <= 0) {
-		nightFuryBlowsFire();
-} 	}, 2000);
 
-window.addEventListener("click", () => {
-	console.log()
+function endGame() {
+	if(toothless.happiness <= 0) {
+		clearInterval(game)
+		console.log(" Toothless has scorched you due to feeling neglected! Game over :( ")
+
+	}
+	if(toothless.hydration <= 0) {
+		clearInterval(game)
+		console.log(" Toothless has scorched you due to being thirsty! Game over :( ")
+
+	}
+	if(toothless.rest <= 0) {
+		clearInterval(game)
+		console.log(" Toothless has scorched you due to being sleep deprived and cranky! Game over :( ")
+	} 
+	if(toothless.fullness <= 0) {
+		clearInterval(game)
+		console.log(" Toothless has scorched you due to being hangry! Game over :( ")
+
+	}
+}
+
+
+
+let toothless = new nightFury('toothless',3, 3, 3, 3)
+console.log(toothless)
+const game = window.setInterval(function(){
+	console.log(toothless.rest)
+	toothless.rest -- 
+	console.log(toothless.happiness)
+	toothless.happiness -- 
+	console.log(toothless.fullness)
+	toothless.fullness --
+	console.log(toothless.hydration)
+	toothless.hydration --
+
+	
+
+	endGame()
+}, 2000);
+
+
+
+document.getElementById("rest").addEventListener("click", () => {
+	console.log('increase rest')
+	toothless.sleepNightFury()
 })
 
+document.getElementById("happiness").addEventListener("click", () => {
+	console.log('increase happiness')
+	toothless.playWithNightFury()
+})
+document.getElementById("fullness").addEventListener("click", () => {
+	console.log('increase fullness')
+	toothless.feedNightFuryDonuts()
+})
+document.getElementById("hydration").addEventListener("click", () => {
+	console.log('increase hydration')
+	toothless.waterNightFury()
+})
 
 
 // click events that adjust value of hunger/happiness/thirst/rest

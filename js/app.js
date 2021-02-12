@@ -233,6 +233,8 @@ document.getElementById("hydration").addEventListener("click", () => {
 })
 
 
+
+
 // click events that adjust value of hunger/happiness/thirst/rest
 
 // don't have more than one timer (runGame timer running all the cycles)
@@ -250,7 +252,8 @@ document.getElementById("hydration").addEventListener("click", () => {
 
 
 
-
+// var h1Element = document.querySelector('h1');
+// h1Element.innerText = 'Feed Toothless the Night Fury before he blows fire!';
 
 
 

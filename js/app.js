@@ -171,6 +171,8 @@ function nightFuryBlowsFire() {
 }
 
 
+
+
 function endGame() {
 	if(toothless.happiness <= 0) {
 		clearInterval(game)
@@ -195,7 +197,7 @@ function endGame() {
 
 
 
-let toothless = new nightFury('toothless',3, 3, 3, 3)
+let toothless = new nightFury('toothless',10, 10, 10, 10)
 console.log(toothless)
 const game = window.setInterval(function(){
 	console.log(toothless.rest)
@@ -211,6 +213,9 @@ const game = window.setInterval(function(){
 
 	endGame()
 }, 20000);
+
+
+
 
 
 

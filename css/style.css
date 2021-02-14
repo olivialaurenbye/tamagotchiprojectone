@@ -1,13 +1,11 @@
 .tamagotchitext{
   background-color: #E6E6FA;
-  min-height: 800px;
-  min-width: 800px;
-  max-width: 800px;
   position: relative;
 
 }
 
 .image-wrapper{
+  z-index: 1;
   height: 100%;
   width: 100%;
   border: 10px pink;
@@ -17,27 +15,40 @@
   justify-content: center;
 }
 
-.tamagotchiwindow{
-  height: 150px;
-  width: 180px;
-  position: absolute;
-  background-size: contain;
-  background-color: pink;
-  background-image: url('../images/tamagotchicrack.jpg');
-}
 
-.value-display{
-  height: auto;
-  display: grid;
-  border: 1px black;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 0;
-}
-.image-wrapper > img {
-  z-index: 2000;
+
+.layered-image {
   position: relative;
 }
-.value-display{
+.layered-image img {
+  height: 800px;
+  width: 800px;
+}
+.image-overlay {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  height: 10px;
+  width: 10px;
+}
+/*.tamagotchiwindow{
+  height: 150px;
+  width: 180px;
+  position: absolute;*/
+/*  background-size: contain;
+  background-color: pink;*/
+/*/*}*//*breaks buttons*
+/*.value-display{
+  height: auto;*/
+ /* display: grid;*/
+ /* border: 1px black;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}*/
+/*.image-wrapper > image {
+  z-index: 0;
+  position: relative;
+}*/
+/*.value-display{
   align-items: center;
   justify-content: center;
   display: flex;
@@ -46,7 +57,7 @@
   border: 1px white;
   height: 100px;
 }
-
+*/
 
 
 

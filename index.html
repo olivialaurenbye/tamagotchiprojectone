@@ -11,20 +11,35 @@
 <h1>Keep the Night Fury happy or be schorched in a fiery blaze!</h1>
 <button class="staryplay">START GAME</button>
 
-<div id="backgroundimage">
+
+<div class="tamagotchitext" style="text-align: center">
+	<div class="value-display">
+		<div id="rest" class="value-display">10</div>
+		<div id="fullness" class="value-display">10</div>
+		<div id="hydration" class="value-display">10</div>
+		<div id="happiness" class="value-display">10</div>
+	</div>
+</div>
+<!-- <div style="background-image: url("../images/HTTYDBACKGROUND.jpg")">
+    <img src="images/toothlesspng.png"/>
+ </div> -->
+
+<!-- <div id="backgroundimage">
 		<img src="images/HTTYDBACKGROUND.jpg" alt="Background">
+		<img src="images/toothlesspng.png" alt="Toothless"> -->
+<div class="layered-image">
+  <img class="image-base" src="images/HTTYDBACKGROUND.jpg" alt=""/>
+  <img class="image-overlay" src="images/toothlesspng.png" alt="" />
+</div>
 </div>
 
 <div>
-<img src="images/tamagotchitoothless.jpg" alt="Toothless">
+<!-- <img src="images/tamagotchitoothless.jpg" alt="Toothless"> -->
 
 
 
-<div class="img-overlay-wrap">
-
-  <img src="images/HTTYDBACKGROUND.jpg">
-  <svg viewBox="0 0 200 200">
-    <img src="images/img.svg"/>
+<div class="image-wrapper">
+   <!--  <img src="images/image.svg"/> -->
   </svg>
 
 </div>
@@ -40,17 +55,22 @@
 
 
 <center>
-<button id = "rest">PUT TO BED</button> 
+<button id = "restbutton">PUT TO BED</button> 
 <br>
 </br>
-<button id = "fullness"> FEED DONUTS</button>
+<button id = "fullnessbutton"> FEED DONUTS</button>
 <br>
 </br>
-<button id = "hydration"> WATER</button>
+<button id = "hydrationbutton"> WATER</button>
 <br>
 </br>
-<button id = "happiness"> PLAY!</button>
+<button id = "happinessbutton"> PLAY!</button>
 </center>
+
+
+
+
+
 
 
 

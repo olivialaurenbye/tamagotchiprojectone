@@ -210,24 +210,24 @@ const game = window.setInterval(function(){
 	
 
 	endGame()
-}, 2000);
+}, 20000);
 
 
 
-document.getElementById("rest").addEventListener("click", () => {
+document.getElementById("restbutton").addEventListener("click", () => {
 	console.log('increase rest')
 	toothless.sleepNightFury()
 })
 
-document.getElementById("happiness").addEventListener("click", () => {
+document.getElementById("happinessbutton").addEventListener("click", () => {
 	console.log('increase happiness')
 	toothless.playWithNightFury()
 })
-document.getElementById("fullness").addEventListener("click", () => {
+document.getElementById("fullnessbutton").addEventListener("click", () => {
 	console.log('increase fullness')
 	toothless.feedNightFuryDonuts()
 })
-document.getElementById("hydration").addEventListener("click", () => {
+document.getElementById("hydrationbutton").addEventListener("click", () => {
 	console.log('increase hydration')
 	toothless.waterNightFury()
 })

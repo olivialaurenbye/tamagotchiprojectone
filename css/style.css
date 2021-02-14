@@ -1,83 +1,61 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-
-}
-
-.resize {
-    width: 200px;
-    height: auto;
-}
-
-.resize {
-    width: 200px;
-    height: auto;
-}
-
-#tamagotchitoothless {
-  background-image: url("../images/image.svg");
-  display: inline-block;
-  height: 600px;
-  width: 600px;
-  background-size: contain;
-
-}
-
-body {
-  text-align: center;
-}
-
-svg {
-  max-height: 100%;
-  max-width: 100%;
-  align-content: flex-center;
-}
-
-.img-overlay-wrap {
+.tamagotchitext{
+  background-color: #E6E6FA;
+  min-height: 800px;
+  min-width: 800px;
+  max-width: 800px;
   position: relative;
-  display: inline-block; /* <= shrinks container to image size */
-  transition: transform 150ms ease-in-out;
+
 }
 
-.img-overlay-wrap img { 
-   display: block;
-   max-width: 100%;
-   height: auto;
+.image-wrapper{
+  height: 100%;
+  width: 100%;
+  border: 10px pink;
+  display: flex;
+  display: absolute;
+  align-items: center;
+  justify-content: center;
 }
 
-.img-overlay-wrap svg {
+.tamagotchiwindow{
+  height: 150px;
+  width: 180px;
   position: absolute;
-  top: 0;
-  left: 0;
+  background-size: contain;
+  background-color: pink;
+  background-image: url('../images/tamagotchicrack.jpg');
 }
 
-.img-overlay-wrap:hover {
-  transform: rotate( 15deg );
+.value-display{
+  height: auto;
+  display: grid;
+  border: 1px black;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 0;
 }
-
-
-
-svg {
-  background-color: lightgrey;
+.image-wrapper > img {
+  z-index: 2000;
+  position: relative;
 }
-.color {
-   fill: blue;
-}
-
-.svg-plain {
-   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 43'><path class='color' d='M 55.584673,43.175632 36.75281,22.967243 0,43.175632 40.42403,0 59.71135,20.208389 96,0 Z' /></svg>");
-}
-
-.svg-base64 {
-   background-image: url("data:image/")
-}
-
-.svg, svg {
-  width: 100px; 
+.value-display{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  font-size: 50px;
+  font-weight: 700;
+  border: 1px white;
   height: 100px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: lightgrey;
-  margin: 5px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -217,19 +217,23 @@ const game = window.setInterval(function(){
 document.getElementById("restbutton").addEventListener("click", () => {
 	console.log('increase rest')
 	toothless.sleepNightFury()
+	document.querySelector("#rest").innerText = parseInt(document.querySelector("#rest").innerText) +3
 })
 
 document.getElementById("happinessbutton").addEventListener("click", () => {
 	console.log('increase happiness')
 	toothless.playWithNightFury()
+	document.querySelector("#happiness").innerText = parseInt(document.querySelector("#happiness").innerText) +3
 })
 document.getElementById("fullnessbutton").addEventListener("click", () => {
 	console.log('increase fullness')
 	toothless.feedNightFuryDonuts()
+	document.querySelector("#fullness").innerText = parseInt(document.querySelector("#fullness").innerText) +3
 })
 document.getElementById("hydrationbutton").addEventListener("click", () => {
 	console.log('increase hydration')
 	toothless.waterNightFury()
+	document.querySelector("#hydration").innerText = parseInt(document.querySelector("#hydration").innerText) +3
 })
 
 

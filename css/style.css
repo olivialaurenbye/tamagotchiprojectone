@@ -19,10 +19,11 @@
 
 .layered-image {
   position: relative;
+  
 }
 .layered-image img {
-  height: 800px;
-  width: 800px;
+  height: 420px;
+  width: 420px;
 }
 .image-overlay {
   position: absolute;

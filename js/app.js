@@ -61,7 +61,7 @@ const tamagotchiGame = {
 }
 
 
-class nightFury {
+class NightFury {
 	constructor(name,happiness,fullness,rest,hydration) {
 		this.name = name
 		this.happiness = happiness
@@ -173,72 +173,93 @@ function nightFuryBlowsFire() {
 
 
 
-function endGame() {
+function checkEndGame() {
 	if(toothless.happiness <= 0) {
-		clearInterval(game)
+		endGame()
 		console.log(" Toothless has scorched you due to feeling neglected! Game over :( ")
 
 	}
 	if(toothless.hydration <= 0) {
-		clearInterval(game)
+		endGame()
 		console.log(" Toothless has scorched you due to being thirsty! Game over :( ")
 
 	}
 	if(toothless.rest <= 0) {
-		clearInterval(game)
+		endGame()
 		console.log(" Toothless has scorched you due to being sleep deprived and cranky! Game over :( ")
 	} 
 	if(toothless.fullness <= 0) {
-		clearInterval(game)
+		endGame()
 		console.log(" Toothless has scorched you due to being hangry! Game over :( ")
 
 	}
 }
 
+let endGame = () => {
+	document.getElementById("fire").style.display = "block"
+	window.clearInterval(gameInterval)
 
+}
 
-let toothless = new nightFury('toothless',10, 10, 10, 10)
-console.log(toothless)
-const game = window.setInterval(function(){
-	console.log(toothless.rest)
-	toothless.rest -- 
-	console.log(toothless.happiness)
-	toothless.happiness -- 
-	console.log(toothless.fullness)
-	toothless.fullness --
-	console.log(toothless.hydration)
-	toothless.hydration --
+let toothless 
+let gameInterval 
+
+const startGame = () => {
+	document.getElementById("fire").style.display = "none" 
+	toothless = new NightFury('toothless',10, 10, 10, 10)
+	renderStats()
+
+	window.clearInterval(gameInterval)
+
+	gameInterval = window.setInterval(function(){
+		console.log(toothless.rest)
+		toothless.rest -- 
+		console.log(toothless.happiness)
+		toothless.happiness -- 
+		console.log(toothless.fullness)
+		toothless.fullness --
+		console.log(toothless.hydration)
+		toothless.hydration --
 
 	
-
-	endGame()
-}, 20000);
-
-
+		renderStats()
+		checkEndGame()
+	}, 700);
 
 
+}
+
+const renderStats = () => {
+	document.querySelector("#rest").innerText = toothless.rest
+	document.querySelector("#happiness").innerText = toothless.happiness
+	document.querySelector("#fullness").innerText = toothless.fullness
+	document.querySelector("#hydration").innerText = toothless.hydration
+}
+
+
+document.getElementById("startbutton").addEventListener("click", startGame)
 
 
 document.getElementById("restbutton").addEventListener("click", () => {
 	console.log('increase rest')
 	toothless.sleepNightFury()
-	document.querySelector("#rest").innerText = parseInt(document.querySelector("#rest").innerText) +3
+	document.querySelector("#rest").innerText = toothless.rest
 })
 
 document.getElementById("happinessbutton").addEventListener("click", () => {
 	console.log('increase happiness')
 	toothless.playWithNightFury()
-	document.querySelector("#happiness").innerText = parseInt(document.querySelector("#happiness").innerText) +3
+	document.querySelector("#happiness").innerText = toothless.happiness
 })
 document.getElementById("fullnessbutton").addEventListener("click", () => {
 	console.log('increase fullness')
 	toothless.feedNightFuryDonuts()
-	document.querySelector("#fullness").innerText = parseInt(document.querySelector("#fullness").innerText) +3
+	document.querySelector("#fullness").innerText = toothless.fullness
 })
 document.getElementById("hydrationbutton").addEventListener("click", () => {
 	console.log('increase hydration')
 	toothless.waterNightFury()
-	document.querySelector("#hydration").innerText = parseInt(document.querySelector("#hydration").innerText) +3
+	document.querySelector("#hydration").innerText = toothless.hydration
 })
 
 
